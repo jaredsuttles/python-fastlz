@@ -1,2 +1,5 @@
 *.so
+MANIFEST
+env*
 build/
+dist/

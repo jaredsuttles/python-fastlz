@@ -1,0 +1,3 @@
+include README.rst
+include fastlz/fastlz.c
+include fastlz/fastlz.h
