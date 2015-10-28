@@ -2,9 +2,10 @@ from distutils.core import setup, Extension
 
 
 setup(
-    name = 'fastlz',
-    version = '0.0.1b',
-    description = 'Python binding for fastlz.',
+    name='fastlz',
+    version='0.0.1',
+    description='Python wrapper for FastLZ, a lightning-fast lossless'
+                'compression library.',
     author='Jared Suttles',
     url='https://github.com/jaredsuttles/python-fastlz',
     license='BSD License',
