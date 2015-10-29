@@ -1,7 +1,7 @@
 #include <Python.h>
 #include "fastlz/fastlz.h"
 
-#define DOCSTRING "Python wrapper for FastLZ, a lightning-fast lossless"\
+#define DOCSTRING "Python wrapper for FastLZ, a lightning-fast lossless "\
                   "compression library"
 
 PyObject* FastlzError;
@@ -72,6 +72,11 @@ decompress(PyObject *self, PyObject *args)
     }
 
     memcpy(&output_len, input, sizeof(uint32_t));
+
+    if (output_len / 256.0 > input_len) {
+        PyErr_SetString(FastlzError, "invalid input");
+        return NULL;
+    }
 
     output = (char *) malloc(output_len + 1);
     if (output == NULL)
