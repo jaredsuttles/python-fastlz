@@ -1,6 +1,12 @@
 #include <Python.h>
 #include "fastlz/fastlz.h"
 
+#ifdef _MSC_VER
+typedef unsigned __int32 uint32_t;
+#else
+#include <stdint.h>
+#endif
+
 #define DOCSTRING "Python wrapper for FastLZ, a lightning-fast lossless "\
                   "compression library"
 
