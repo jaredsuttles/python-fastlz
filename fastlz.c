@@ -147,7 +147,7 @@ initfastlz(void)
     m = Py_InitModule3("fastlz", module_methods, module_doc);
 #endif
 
-    PyModule_AddObject(m, "__version__", Py_BuildValue("s", "0.0.1"));
+    PyModule_AddObject(m, "__version__", Py_BuildValue("s", "0.0.2"));
     PyModule_AddObject(m, "__author__", Py_BuildValue("s", "Jared Suttles"));
 
     d = PyModule_GetDict(m);
