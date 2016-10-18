@@ -7,9 +7,6 @@ typedef unsigned __int32 uint32_t;
 #include <stdint.h>
 #endif
 
-#define DOCSTRING "Python wrapper for FastLZ, a lightning-fast lossless "\
-                  "compression library"
-
 PyObject* FastlzError;
 
 
@@ -112,19 +109,21 @@ decompress(PyObject *self, PyObject *args)
 
 static PyMethodDef module_methods[] = {
     {"compress", (PyCFunction)compress, METH_VARARGS|METH_KEYWORDS,
-     "Compress a string. Optionally provide a compression level."},
+     PyDoc_STR("Compress a string. Optionally provide a compression level.")},
     {"decompress", (PyCFunction)decompress, METH_VARARGS,
-     "Decompress a string."},
+     PyDoc_STR("Decompress a string.")},
     {NULL, NULL, 0, NULL}
 };
 
+PyDoc_STRVAR(module_doc,
+"Python wrapper for FastLZ, a lightning-fast lossless compression library.");
 
 #if PY_MAJOR_VERSION >= 3
 
 static struct PyModuleDef module_def = {
     PyModuleDef_HEAD_INIT,
     "fastlz",
-    DOCSTRING,
+    module_doc,
     -1,
     module_methods
 };
@@ -145,7 +144,7 @@ initfastlz(void)
 #if PY_MAJOR_VERSION >= 3
     m = PyModule_Create(&module_def);
 #else
-    m = Py_InitModule3("fastlz", module_methods, DOCSTRING);
+    m = Py_InitModule3("fastlz", module_methods, module_doc);
 #endif
 
     PyModule_AddObject(m, "__version__", Py_BuildValue("s", "0.0.1"));
