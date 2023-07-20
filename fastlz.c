@@ -1,3 +1,4 @@
+#define PY_SSIZE_T_CLEAN
 #include <Python.h>
 #include "fastlz/fastlz.h"
 
@@ -16,7 +17,7 @@ compress(PyObject *self, PyObject *args, PyObject *kwargs)
     PyObject *result;
     const char *input;
     char *output;
-    int level = 0, input_len, output_len;
+    Py_ssize_t level = 0, input_len, output_len;
 
     static char *arglist[] = {"string", "level", NULL};
     if (!PyArg_ParseTupleAndKeywords(args, kwargs, "s#|i", arglist, &input,
@@ -62,9 +63,9 @@ decompress(PyObject *self, PyObject *args)
 {
     PyObject *result;
     const char *input;
-    int input_len;
+    Py_ssize_t input_len;
     char *output;
-    uint32_t output_len, decompressed_len;
+    Py_ssize_t output_len, decompressed_len;
 
     if (!PyArg_ParseTuple(args, "s#", &input, &input_len))
         return NULL;

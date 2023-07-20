@@ -3,3 +3,4 @@ MANIFEST
 env*
 build/
 dist/
+.venv/
