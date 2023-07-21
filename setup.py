@@ -19,7 +19,8 @@ setup(
         'Programming Language :: Python',
         'Topic :: Software Development :: Libraries',
         'Topic :: System :: Archiving :: Compression',
-        'Topic :: Utilities'
+        'Topic :: Utilities',
+        "Programming Language :: Python :: 3.10",
     ],
     ext_modules = [
         Extension(
@@ -28,4 +29,9 @@ setup(
             include_dirs=['fastlz']
         )
     ]
+    extras_require={
+        "dev": [
+            "pytest",
+        ],
+    },
 )
