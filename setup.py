@@ -3,7 +3,8 @@ from distutils.core import setup, Extension
 
 setup(
     name='fastlz',
-    version='0.0.2',
+    version='0.0.3',
+    python_requires='>=3.10',
     description='Python wrapper for FastLZ, a lightning-fast lossless '
                 'compression library.',
     author='Jared Suttles',
